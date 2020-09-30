@@ -58,6 +58,10 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
         left join VI_ITEMS as i on ir.ITEMS_id=i.id 
         left join VI_TIPOITEM as ti on i.TIPOITEM_id=ti.id 
 	```
+	
+	![punto2]()
+	![punto2.1]()
+	![punto2.2]()
 
 3. Abra el archivo XML en el cual se definirán los parámetros para que MyBatis genere el 'mapper' de Cliente (ClienteMapper.xml). Ahora, mapee un elemento de tipo \<select> al método 'consultarClientes':
 
@@ -66,6 +70,7 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
    			SENTENCIA SQL
 	</select>
 	```
+	![punto3]()
 
 3. Note que el mapeo hecho anteriormente, se indica que los detalles de a qué atributo corresponde cada columna del resultado de la consulta están en un 'resultMap' llamado "ClienteResult". En el XML del mapeo agregue un elemento de tipo &lt;resultMap&gt;, en el cual se defina, para una entidad(clase) en particular, a qué columnas estarán asociadas cada una de sus propiedades (recuerde que propiedad != atributo). La siguiente es un ejemplo del uso de la sintaxis de &lt;resultMap&gt; para la clase Maestro, la cual tiene una relación 'uno a muchos' con la clase DetalleUno y una relación 'uno a uno' con la clase DetalleDos, y donde -a la vez-, DetalleUno tiene una relación 'uno-a-uno- con DetalleDos:
 
@@ -95,7 +100,9 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
 
 	Como observa, Para cada propiedad de la clase se agregará un elemento de tipo &lt;result&gt;, el cual, en la propiedad 'property' indicará el nombre de la propiedad, y en la columna 'column' indicará el nombre de la columna de su tabla correspondiente (en la que se hará persistente). En caso de que la columna sea una llave primaria, en lugar de 'result' se usará un elemento de tipo 'id'. Cuando la clase tiene una relación de composición con otra, se agrega un elemento de tipo &lt;association&gt;.Finalmente, observe que si la clase tiene un atributo de tipo colección (List, Set, etc), se agregará un elemento de tipo &lt;collection&gt;, indicando (en la propiedad 'ofType') de qué tipo son los elementos de la colección. En cuanto al indentificador del 'resultMap', como convención se suele utilizar el nombre del tipo de dato concatenado con 'Result' como sufijo.
 	
-	Teniendo en cuenta lo anterior, haga cuatro 'resultMap': uno para la clase Cliente, otro para la clase ItemRentado, otro para la clase Item, y otro para la clase TipoItem. 
+	Teniendo en cuenta lo anterior, haga cuatro 'resultMap': uno para la clase Cliente, otro para la clase ItemRentado, otro para la clase Item, y otro para la clase TipoItem.
+	
+	
 
 5. Una vez haya hecho lo anterior, es necesario que en el elemento &lt;collection&gt; del maestro se agregue una propiedad que indique cual es el 'resultMap' a través del cual se podrá 'mapear' los elementos contenidos en dicha colección. Para el ejemplo anterior, como la colección contiene elementos de tipo 'Detalle', se agregará el elemento __resultMap__ con el identificador del 'resultMap' de Detalle:
 
@@ -130,6 +137,11 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
     </resultMap>
 	```
 	Haga los ajustes necesarios en la consulta y en los 'resultMap' para que no haya inconsistencias de nombres.
+	
+	![punto4C]
+	![punto4T]
+	![punto4I]
+	![punto4U]
 
 
 8. Use el programa de prueba suministrado (MyBatisExample) para probar cómo a través del 'mapper' generado por MyBatis, se puede consultar un Cliente. 
@@ -142,6 +154,7 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
 	System.out.println(cm.consultarClientes()));
 	...
 	```
+	![punto8]
 
 
 ## Parte II (para el Miércoles)
