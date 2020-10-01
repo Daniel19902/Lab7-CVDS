@@ -2,6 +2,8 @@
 ### Ciclos de Vida del desarrollo de Software – CVDS
 #### Tecnologías de persistencia - Frameworks de Persistencia - Introducción a MyBatis
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c46566a5eabe4891acab501b50c814c0)](https://www.codacy.com/gh/Daniel19902/Lab7-CVDS/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Daniel19902/Lab7-CVDS&amp;utm_campaign=Badge_Grade)
+
 
 En este laboratorio se utilizará un 'framework' de persistencia. La base de datos que se utilizará tiene los siguientes parámetros:
 
@@ -59,9 +61,11 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
         left join VI_TIPOITEM as ti on i.TIPOITEM_id=ti.id 
 	```
 	
-	![punto2]()
-	![punto2.1]()
-	![punto2.2]()
+	![punto2](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto2.PNG)
+	
+	![punto2.1](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto2.1.PNG)
+	
+	![punto2.2](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto2.2.PNG)
 
 3. Abra el archivo XML en el cual se definirán los parámetros para que MyBatis genere el 'mapper' de Cliente (ClienteMapper.xml). Ahora, mapee un elemento de tipo \<select> al método 'consultarClientes':
 
@@ -70,7 +74,7 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
    			SENTENCIA SQL
 	</select>
 	```
-	![punto3]()
+	![punto3](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto3.PNG)
 
 3. Note que el mapeo hecho anteriormente, se indica que los detalles de a qué atributo corresponde cada columna del resultado de la consulta están en un 'resultMap' llamado "ClienteResult". En el XML del mapeo agregue un elemento de tipo &lt;resultMap&gt;, en el cual se defina, para una entidad(clase) en particular, a qué columnas estarán asociadas cada una de sus propiedades (recuerde que propiedad != atributo). La siguiente es un ejemplo del uso de la sintaxis de &lt;resultMap&gt; para la clase Maestro, la cual tiene una relación 'uno a muchos' con la clase DetalleUno y una relación 'uno a uno' con la clase DetalleDos, y donde -a la vez-, DetalleUno tiene una relación 'uno-a-uno- con DetalleDos:
 
@@ -138,10 +142,13 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
 	```
 	Haga los ajustes necesarios en la consulta y en los 'resultMap' para que no haya inconsistencias de nombres.
 	
-	![punto4C]
-	![punto4T]
-	![punto4I]
-	![punto4U]
+   ![punto4C](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto4C.PNG)
+	
+   ![punto4T](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto4T.PNG)
+   
+   ![punto4I](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto4R.PNG)
+   
+   ![punto4U](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto4U.PNG)
 
 
 8. Use el programa de prueba suministrado (MyBatisExample) para probar cómo a través del 'mapper' generado por MyBatis, se puede consultar un Cliente. 
@@ -154,7 +161,7 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
 	System.out.println(cm.consultarClientes()));
 	...
 	```
-	![punto8]
+	![punto8](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto8.PNG)
 
 
 ## Parte II (para el Miércoles)
@@ -190,3 +197,10 @@ En este laboratorio se utilizará un 'framework' de persistencia. La base de dat
 	```
 	
 	Verifique el funcionamiento haciendo una consulta a través del 'mapper' desde MyBatisExample.
+	
+	
+6. coneccion a la base de datos donde se garantiza que la informacion coincide con la base de datos
+
+    ![punto8.1](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto8.1.PNG)
+    
+    ![punto8.2](https://github.com/Daniel19902/Lab7-CVDS/blob/master/img/punto8.2.PNG)
